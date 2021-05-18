@@ -89,6 +89,77 @@ for i = keys(dict)
     end
 end
 %%
+P1 = [1 0 0];
+P2 = [1 4 1 -6];
+[r, p, k] = residue(P1,P2);
+for i = 1:length(r)
+    if p(i)<0
+        fprintf("%4.2f/(x%4.2f) ", r(i), p(i))
+    else
+        fprintf("%4.2f/(x+%4.2f) ", r(i), p(i))
+    end
+    if i ~= length(r)
+        fprintf("+ ")
+    elseif k ~= []
+        fprintf("%4.2f\n", k);
+    else
+        fprintf("\n")
+    end
+end    
+%%
+%part 2
+P1 = [1 3];
+P2 = [1 -1 1 -1];
+[r, p, k] = residue(P1,P2);
+for i = 1:length(r)
+    if p(i)<0
+        fprintf("%4.2f/(x%4.2f) ", r(i), p(i))
+    else
+        fprintf("%4.2f/(x+%4.2f) ", r(i), p(i))
+    end
+    if i ~= length(r)
+        fprintf("+ ")
+    elseif k ~= []
+        fprintf("%4.2f\n", k);
+    else
+        fprintf("\n")
+    end
+end    
+%%
+%part 3
+P1 = [1 0 0];
+P2 = [1 0 0 -1];
+[r, p, k] = residue(P1,P2);
+for i = 1:length(r)
+    if p(i)<0
+        fprintf("%4.2f/(x%4.2f) ", r(i), p(i))
+    else
+        fprintf("%4.2f/(x+%4.2f) ", r(i), p(i))
+    end
+    if i ~= length(r)
+        fprintf("+ ")
+    elseif k ~= []
+        fprintf("%4.2f\n", k);
+    else
+        fprintf("\n")
+    end
+end
+%%
+n = 4;
+x = 1:n;
+y = ones(1,n)./x;
+P = lagrange(x,y)
+r = roots(P)
+xx = x(1)-1:0.01:x(end)+1;
+yy = polyval(P, xx);
+plot(xx,yy)
+for i = 1:length(x)
+    hold on
+    plot(x(i),y(i), "*")
+end
+grid on
+
+
 
 
 
