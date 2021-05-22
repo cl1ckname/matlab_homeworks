@@ -62,7 +62,7 @@ for a = P
 end
 fprintf("%d\n", result);
 %%
-n = 3;
+n = 3
 P = [];
 for i = 2*n:-1:0
     if i == 2*n
@@ -83,9 +83,9 @@ dict = containers.Map(unique(real(r)),zeros(1,length(unique(real(r)))));
 for i = 1:length(r)
     dict(real(r(i))) = dict(real(r(i))) + 1;
 end
-for i = unique(real(r)')
+for i = keys(dict)
     if dict(i) > 1
-        disp(i)
+        fprintf("%d ", i)
     end
 end
 %%
