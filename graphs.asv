@@ -24,11 +24,11 @@ colorbar
 caxis([min(sizes), max(sizes)])
 
 
-[s,i]= sort(g.indegree);
-i = flip(i)
+sixth = sort(g.indegree);
 disp("Top 5")
-
-disp(names(i(1:5)))
+for i=1:5
+    disp(names(sixth(i)))
+end
 
 %disp(names(flip(find(sum(gr) > sixth))))
 
